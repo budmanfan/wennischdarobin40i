@@ -29,9 +29,10 @@ body {
 /* Positioning container for the image */
 .image-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50vh; /* Middle third of the viewport */
+    height: 50vh; /* Middle of the viewport */
     width: 100%;
 }
 
@@ -42,14 +43,21 @@ body {
     border-radius: 8px;
 }
 
+#robin-caption {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+}
+
 /* Positioning container for the fun fact */
 .fun-fact-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 66.66vh; /* Middle third of the viewport height */
-    width: 100%;
+    height: 66.66vh; /* Bottom third of the viewport height */
+    width: 90%;
 }
 
 /* Style for the "Wussten Sie schon:" text */
