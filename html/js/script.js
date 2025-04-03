@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const targetDate = new Date('April 2, 2034 00:00:00 GMT+0200');
     const countdownElement = document.getElementById('countdown');
     const funFactElement = document.getElementById('fun-fact');
-    const robinPhoto = document.getElementById('robin-photo'); // <-- reference to image element
+    const robinPhoto = document.getElementById('robin-photo');
+    const robinCaption = document.getElementById('robin-caption');
 
     function updateCountdown() {
         const now = new Date();
@@ -45,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // ✅ NEW FUNCTION to update the image based on Robin's age
     function updateRobinImage() {
         const today = new Date();
         const birthYear = 1994;
@@ -58,11 +58,25 @@ document.addEventListener('DOMContentLoaded', function () {
             age -= 1;
         }
 
-        if (age >= 31 && age <= 40) {
+        const showSilly = Math.random() < 0.02; // ~2% chance every second
+
+        if (age < 31) {
+            robinPhoto.style.display = 'none'; // hide if out of bounds
+            robinCaption.style.display = 'none';
+        } else if (showSilly) {
+            const sillyIndex = Math.floor(Math.random() * 10); // 0–9
+            robinPhoto.src = `data/robin_silly${sillyIndex}.webp`;
+            robinCaption.textContent = `Robin???`;
+        } else if (age > 40) {
+            robinPhoto.src = `data/robin40.webp`;
+            robinPhoto.style.display = 'block';
+            robinCaption.textContent = `Robin, ${age} Jahre alt`;
+            robinCaption.style.display = 'block';
+        } else { // age between 31 and 40
             robinPhoto.src = `data/robin${age}.webp`;
             robinPhoto.style.display = 'block';
-        } else {
-            robinPhoto.style.display = 'none'; // hide if out of bounds
+            robinCaption.textContent = `Robin, ${age} Jahre alt`;
+            robinCaption.style.display = 'block';
         }
     }
 
