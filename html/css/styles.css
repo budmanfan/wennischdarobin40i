@@ -1,0 +1,68 @@
+/* Apply a full-height flex container to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Positioning container for the countdown */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 33.33vh; /* Top third of the viewport height */
+    width: 100%;
+}
+
+/* Style for the countdown text */
+#countdown {
+    font-size: 4em; /* Larger text size */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Positioning container for the image */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Middle third of the viewport */
+    width: 100%;
+}
+
+/* Style for the image itself */
+#robin-photo {
+    height: 80%;
+    width: auto;
+    border-radius: 8px;
+}
+
+/* Positioning container for the fun fact */
+.fun-fact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 66.66vh; /* Middle third of the viewport height */
+    width: 100%;
+}
+
+/* Style for the "Wussten Sie schon:" text */
+#fun-fact-intro {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Style for the fun fact text */
+#fun-fact {
+    font-size: 2em;
+    font-weight: normal;
+    text-align: center;
+}
