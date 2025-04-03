@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
             robinCaption.style.display = 'none';
         } else if (showSilly) {
             const sillyIndex = Math.floor(Math.random() * 10); // 0–9
-            robinPhoto.src = `data/robin_silly${sillyIndex}.webp`;
-            robinCaption.textContent = `Robin???`;
+            robinPhoto.src = `data/robin_silly${sillyIndex}.webp?cb=${Date.now()}`; // cache buster
+            robinCaption.textContent = `Robin`;
         } else if (age > 40) {
             robinPhoto.src = `data/robin40.webp`;
             robinPhoto.style.display = 'block';
