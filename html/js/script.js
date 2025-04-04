@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         countdownElement.textContent = `${days} Tage ${hours} h ${minutes} min ${seconds} s`;
 
         fetchFunFact(days);
-        updateRobinImage(); // <-- call image logic
+        //updateRobinImage(); // now with it's own interval
     }
 
     function fetchFunFact(dayIndex) {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
             age -= 1;
         }
 
-        const showSilly = Math.random() < 0.02; // ~2% chance every second
+        const showSilly = Math.random() < 0.05; // ~5% chance every 3 seconds
 
         if (age < 31) {
             robinPhoto.style.display = 'none'; // hide if out of bounds
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (showSilly) {
             const sillyIndex = Math.floor(Math.random() * 10); // 0–9
             robinPhoto.src = `data/robin_silly${sillyIndex}.webp?cb=${Date.now()}`; // cache buster
-            robinCaption.textContent = `Robin`;
+            robinCaption.textContent = `???`;
         } else if (age > 40) {
             robinPhoto.src = `data/robin40.webp`;
             robinPhoto.style.display = 'block';
@@ -80,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    const countdownInterval = setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call
+    setInterval(updateCountdown, 1000);       // Update countdown every second
+    setInterval(updateRobinImage, 3000);      // Update image every 5 seconds
+
+    updateCountdown();     // Call once immediately
+    updateRobinImage();    // Also call image update immediately
 });
