@@ -21,9 +21,25 @@ body {
 
 /* Style for the countdown text */
 #countdown {
-    font-size: 4em; /* Larger text size */
-    font-weight: bold;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #111;
+}
+
+.count-days {
+    font-size: 4em;
+    font-weight: 600;
+    margin-bottom: 0.2em;
+}
+
+.count-hms {
+    font-family: 'Courier New', monospace;
+    font-size: 2em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #555;
 }
 
 /* Positioning container for the image */

@@ -22,8 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-        countdownElement.textContent = `${days} Tage ${hours} h ${minutes} min ${seconds} s`;
-
+        countdownElement.innerHTML = `<div class="count-days">${days} Tage</div>
+                                    <div class="count-hms">${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}</div>`;
+        
         fetchFunFact(days);
         //updateRobinImage(); // now with it's own interval
     }
